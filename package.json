@@ -1,0 +1,24 @@
+{
+  "name": "kodarie.com",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "node-sass": "^4.7.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "build": "echo sass | xargs -n1 -I% npm run build:%",
+    "build:sass": "node-sass -r static/styles -o static/dist/styles",
+    "watch:sass": "node-sass -w -r static/styles -o static/dist/styles"
+  },
+  "author": "",
+  "license": "ISC"
+}
