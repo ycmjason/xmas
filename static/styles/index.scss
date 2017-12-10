@@ -1,27 +1,65 @@
 $transition-time: 0.2s;
 
+*{
+  box-sizing: border-box;
+}
+
 .primary-font {
-  font-family: "Pacifico", "Verdana", "Geneva", "sans-serif";
+  font-family: 'Kalam', cursive;
+  font-weight: normal;
+  font-size: 1rem;
 }
 .secondary-font {
   font-family: "Great Vibes", "Comic Sans MS", "cursive", "sans-serif";
-  font-size: 24px;
+  font-weight: normal;
+  font-size: 1.3rem;
+}
+
+html{
+  font-size: 20px;
 }
 
 body{
   @extend .primary-font;
+  background-color: #292929;
+  color: white;
+  position: relative;
+}
+
+img{
+  max-width: 100%;
+  margin: 0 auto;
+  display: block;
 }
 
 .container{
   margin: 0 auto;
-  max-width: 800px;
+  width: 800px;
+  max-width: 100%;
+  padding: 8px;
+}
+
+.text-center {
+  text-align: center !important;
 }
 
 .card {
+  background-color: white;
+  color: #292929;
+  padding: 2em;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all $transition-time cubic-bezier(.25,.8,.25,1);
 }
 
-.card:hover {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+.card_greetings {
+  margin-bottom: 2em;  
+}
+
+.card_body {
+  text-align: justify;
+}
+
+.card_signiture {
+  margin-top: 2em;  
+  text-align: right;
 }

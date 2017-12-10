@@ -7,16 +7,17 @@
     "lib": "lib"
   },
   "dependencies": {
-    "body-parser": "^1.18.2",
     "express": "^4.16.2",
-    "node-sass": "^4.7.2"
+    "autoprefixer": "^7.2.2",
+    "node-sass": "^4.7.2",
+    "postcss-cli": "^4.1.1"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
+    "postinstall": "npm run build",
     "build": "echo sass | xargs -n1 -I% npm run build:%",
-    "build:sass": "node-sass -r static/styles -o static/dist/styles",
+    "build:sass": "node-sass -r static/styles -o static/dist/styles && postcss --use autoprefixer -r static/dist/styles/*.css",
     "watch:sass": "node-sass -w -r static/styles -o static/dist/styles"
   },
   "author": "",
