@@ -1,26 +1,42 @@
 {
-  "name": "kodarie.com",
+  "name": "xmas.ycmjason.com",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "directories": {
-    "lib": "lib"
-  },
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "md5": "^2.2.1",
+    "package.json": "^2.0.1",
+    "trash": "^4.2.1",
+    "watchify": "^3.9.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.2.2",
+    "babel-core": "^6.26.0",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babelify": "^8.0.0",
+    "browserify": "^14.5.0",
     "node-sass": "^4.7.2",
-    "postcss-cli": "^4.1.1"
+    "postcss-cli": "^4.1.1",
+    "pre-commit": "^1.2.2"
   },
   "scripts": {
+    "babel": "babel",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
+    "prebuild": "mkdir -p static/dist",
     "build": "echo sass | xargs -n1 -I% npm run build:%",
     "build:sass": "node-sass -r static/styles -o static/dist/styles && postcss --use autoprefixer -r static/dist/styles/*.css",
-    "watch:sass": "node-sass -w -r static/styles -o static/dist/styles"
+    "prebuild:js": "mkdir -p static/dist/js",
+    "build:js": "browserify static/js/index.js -t babelify --outfile static/dist/js/index.js",
+    "prebuild:sass": "mkdir -p static/dist/styles",
+    "watch:sass": "node-sass -w -r static/styles -o static/dist/styles",
+    "watch:js": "watchify static/js/index.js -d -t babelify --outfile static/dist/js/index.js"
   },
+  "pre-commit": "build",
   "author": "",
   "license": "ISC"
 }
