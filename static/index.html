@@ -1,8 +1,8 @@
 <html>
   <head>
-    <title>Merry Christmas, Kodarie!</title>
+    <title>Merry Christmas!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/favicon.jpg" rel="shortcut icon">
+    <link href="/favicon.png" rel="shortcut icon">
 
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Kalam" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" rel="stylesheet">
@@ -15,8 +15,9 @@
   </head>
   <body>
     <div class="snow"></div>
-    <div class="container animated slideInLeft">
-      <section class="card">
+    <div class="container">
+      <div class="loading animated slideInLeft">Fetching content...</div>
+      <section class="card animated hide">
         <p class="card_greetings"></p>
         <p class="card_body text-center">
           <span class="secondary-font">Merry Christmas and Happy New Year!</span>
@@ -28,6 +29,7 @@
         </p>
       </section>
     </div>
+    <audio src="/song.mp3" volume="0.5" loop autoplay></audio>
     <script src="/dist/js/index.js"></script>
   </body>
 </html>

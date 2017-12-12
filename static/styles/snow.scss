@@ -6,7 +6,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: -1;
   background-image: url("/images/snow1.png"), url("/images/snow2.png"), url("/images/snow3.png");
   animation: snow 60s linear infinite;
   filter: drop-shadow(0.1px 0.1px 0.1px rgba(0, 0, 0, 0.5));

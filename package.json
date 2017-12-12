@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "chalk": "^2.3.0",
+    "datauri": "^1.0.5",
     "express": "^4.16.2",
+    "htmlspecialchars": "^1.0.5",
     "md5": "^2.2.1",
     "package.json": "^2.0.1",
     "trash": "^4.2.1",
@@ -28,15 +31,19 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "prebuild": "mkdir -p static/dist",
-    "build": "echo sass | xargs -n1 -I% npm run build:%",
+    "build": "npm run build:sass && npm run build:js",
     "build:sass": "node-sass -r static/styles -o static/dist/styles && postcss --use autoprefixer -r static/dist/styles/*.css",
     "prebuild:js": "mkdir -p static/dist/js",
     "build:js": "browserify static/js/index.js -t babelify --outfile static/dist/js/index.js",
     "prebuild:sass": "mkdir -p static/dist/styles",
     "watch:sass": "node-sass -w -r static/styles -o static/dist/styles",
-    "watch:js": "watchify static/js/index.js -d -t babelify --outfile static/dist/js/index.js"
+    "watch:js": "watchify static/js/index.js -d -t babelify --outfile static/dist/js/index.js",
+    "gitadd": "git add static/dist/"
   },
-  "pre-commit": "build",
+  "pre-commit": [
+    "build",
+    "gitadd"
+  ],
   "author": "",
   "license": "ISC"
 }

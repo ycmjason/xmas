@@ -15,21 +15,25 @@ $transition-time: 0.2s;
   font-size: 1.3rem;
 }
 
-html{
+html {
   font-size: 20px;
 }
 
-body{
+body {
   @extend .primary-font;
   background-color: #292929;
   color: white;
   position: relative;
 }
 
-img{
+img, video {
   max-width: 100%;
   margin: 0 auto;
   display: block;
+}
+
+video {
+  max-height: 80vh;
 }
 
 .container{
@@ -41,6 +45,16 @@ img{
 
 .text-center {
   text-align: center !important;
+}
+
+.loading {
+  @extend .card;
+  display: flex;
+  justify-content: center;
+
+  &::before {
+    content: url('/images/spinner.gif');
+  }
 }
 
 .card {
@@ -62,4 +76,8 @@ img{
 .card_signiture {
   margin-top: 2em;  
   text-align: right;
+}
+
+.hide {
+  display: none;
 }
